@@ -20,17 +20,17 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./trabalhodevsecopsmba  # Ajuste para o diretório onde está o package.json
+        working-directory: ./  # Ajustado para o diretório raiz do projeto
 
       - name: Build
         run: npm run build
-        working-directory: ./trabalhodevsecopsmba  # Ajuste para o diretório onde está o package.json
+        working-directory: ./  # Ajustado para o diretório raiz do projeto
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          publish_dir: ./trabalhodevsecopsmba/dist  # Ajuste conforme o diretório de saída do build
+          publish_dir: ./dist  # Ajustado conforme o diretório de saída do build
 
       - name: Notify Deployment Status
         run: echo "Deployment to GitHub Pages succeeded."
