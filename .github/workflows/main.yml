@@ -10,14 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Build
-      run: echo "Building the project Bruno deploy..."
+      - name: Build
+        run: echo "Building the project Bruno deploy..."
       
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-        publish_dir: ./
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          publish_dir: ./
+
+      - name: Notify Deployment Status
+        run: echo "Notifying deployment status..."
+
+      - name: Cleanup
+        run: echo "Cleanup after deployment..."
+
